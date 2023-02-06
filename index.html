@@ -37,6 +37,7 @@
     let paddleX = margin + size / 2
     let paddleWidth = 40;
     let points = 0;
+    let pause = false
 
     function keyUp(e) {
       keysDown[e.key] = false
@@ -46,6 +47,9 @@
       }
       if (e.key == "ArrowRight") {
         console.log("Up Right")
+      }
+      if(e.key == "p"){
+          pause = !pause
       }
     }
 
@@ -63,6 +67,9 @@
 
 
     function update() {
+        if(pause) return
+
+
       if (scene == 0) {
         if(keysDown[" "]){
           scene = 1;
@@ -173,11 +180,6 @@
     }
 
     setInterval(gameLoop, 1000 / 25)
-
-
-
-
-
 
   </script>
 </body>
